@@ -3,10 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import fastclick from 'fastclick'
+import './assets/styles/reset.css'
 
 Vue.config.productionTip = false
+// 使用fastclick
+fastclick.attach(document.body)
 
 /* eslint-disable no-new */
+// 创建根实例的，使用router[路由配置]
 new Vue({
   el: '#app',
   router,
