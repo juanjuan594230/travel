@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
 import './assets/styles/reset.css'
+import './assets/styles/border.css'
 
 Vue.config.productionTip = false
 // 使用fastclick
