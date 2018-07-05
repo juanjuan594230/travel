@@ -1,5 +1,5 @@
 <template>
-  <div class="weekend">
+  <div class="weekend" v-if="showWeekend">
     <div class="weekend-title">周末去哪</div>
     <ul class="weekend-list">
       <li class="weekend-item" v-for="item in weekendList" :key="item.id">
@@ -17,21 +17,13 @@
 
 <script>
 export default {
-  name: "HomeWeekend",
-  data: function () {
-    return {
-      weekendList: [
-        { id: '0001', 
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/3c/96128de07fdd2f.jpg_r_640x214_4505bca3.jpg',
-          title: '中山必游TOP10',
-          desc: '国父故乡，革命起源地'
-        },
-        { id: '0002', 
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1602/88/bf120edeaea383.jpg_r_640x214_f8591f7b.jpg',
-          title: '欢乐长隆',
-          desc: '世界欢乐汇聚长隆'
-        }
-      ]
+  name: 'HomeWeekend',
+  props: {
+    weekendList: Array
+  },
+  computed: {
+    showWeekend: function () {
+      return this.weekendList.length
     }
   }
 }
@@ -70,4 +62,3 @@ export default {
         color #616161
         ellipsis()
 </style>
-

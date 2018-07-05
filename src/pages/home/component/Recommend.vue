@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend">
+  <div class="recommend" v-if="showRecommend">
     <div class="recommend-title">热销推荐</div>
     <ul class="recommend-list">
       <li class="recommend-item border-bottom" v-for="item in recommendList" :key="item.id">
@@ -18,26 +18,13 @@
 
 <script>
 export default {
-  name: "HomeRecommend",
-  data: function () {
-    return {
-      recommendList: [
-        { id: '0001', 
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1804/80/809d836b77660cdda3.img.jpg_200x200_b700e95e.jpg',
-          title: '泉林山庄水上乐园',
-          desc: '泉林山庄水上乐园'
-        },
-        { id: '0002', 
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1804/57/570812106eff912ea3.img.jpg_200x200_1a581ad1.jpg',
-          title: '泉林山庄水上乐园',
-          desc: '泉林山庄水上乐园'
-        },
-        { id: '0003', 
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/d6/d6c26678b2f50ecd90.water.jpg_200x200_0076058f.jpg',
-          title: '泉林山庄水上乐园',
-          desc: '泉林山庄水上乐园'
-        }
-      ]
+  name: 'HomeRecommend',
+  props: {
+    recommendList: Array
+  },
+  computed: {
+    showRecommend: function () {
+      return this.recommendList.length
     }
   }
 }
@@ -52,7 +39,7 @@ export default {
     font-size .32rem
     color @textColor
     background-color #eee
-  .recommend-list 
+  .recommend-list
     padding-left .24rem
     .recommend-item
       overflow hidden
@@ -89,4 +76,3 @@ export default {
           border-radius: .06rem
           color: #fff
 </style>
-

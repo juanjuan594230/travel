@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" v-if="showSwiper">
     <swiper :options="swiperOption">
       <!-- slides -->
       <swiper-slide v-for="item in swiperList" :key="item.id">
@@ -20,11 +20,15 @@ export default {
         pagination: '.swiper-pagination',
         loop: true,
         autoplay: 1000
-      },
-      swiperList: [
-        {id: '0001', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1806/97/f282eaa627305102.jpg_750x200_bfa4f1aa.jpg'},
-        {id: '0002', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1708/7c/c0b9acba07764302.jpg_750x200_389436b7.jpg'}
-      ]
+      }
+    }
+  },
+  props: {
+    swiperList: Array
+  },
+  computed: {
+    showSwiper: function () {
+      return this.swiperList.length
     }
   }
 }
@@ -32,12 +36,13 @@ export default {
 
 <style lang="stylus" scoped>
   .wrapper >>> .swiper-pagination-bullet-active
-    background-color #fff
+    background: #fff
   .wrapper
-    overflow : hidden
-    width : 100%
-    height : 0
-    padding-bottom : 26.7%
+    overflow: hidden
+    width: 100%
+    height: 0
+    padding-bottom: 31.25%
+    background: #eee
     .swiper-img
-      width : 100%
+      width: 100%
 </style>
