@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/home.vue'
+import City from '@/pages/city/City.vue'
 
 Vue.use(Router)
 
@@ -12,6 +13,12 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    // 城市选择页面
+    {
+      path: '/city',
+      name: 'City',
+      component: City
     }
   ]
 })
