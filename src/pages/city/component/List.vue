@@ -1,61 +1,67 @@
 <template>
-  <div class="list">
-    <div class="area">
-      <div class="title">您的位置</div>
-      <div class="button-list">
-        <div class="button-wrapper">
-          <div class="button">北京</div>
+  <div class="list" ref="wrapper">
+    <div>
+      <div class="area">
+        <div class="title">您的位置</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title">热门城市</div>
-      <div class="button-list">
-        <div class="button-wrapper">
-          <div class="button">厦门</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">上海</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">西安</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">太原</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">深圳</div>
+      <div class="area">
+        <div class="title">热门城市</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">厦门</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">上海</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">西安</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">太原</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">深圳</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title">A</div>
-      <div class="item-list">
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">澳门</div>
-        <div class="item border-bottom">阿里巴巴</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">澳门</div>
-        <div class="item border-bottom">阿里巴巴</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">澳门</div>
-        <div class="item border-bottom">阿里巴巴</div>
+      <div class="area">
+        <div class="title">A</div>
+        <div class="item-list">
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">澳门</div>
+          <div class="item border-bottom">阿里巴巴</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">澳门</div>
+          <div class="item border-bottom">阿里巴巴</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">澳门</div>
+          <div class="item border-bottom">阿里巴巴</div>
+        </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title">B</div>
-      <div class="item-list">
-        <div class="item border-bottom">北京</div>
-        <div class="item border-bottom">澳门</div>
-        <div class="item border-bottom">阿里巴巴</div>
+      <div class="area">
+        <div class="title">B</div>
+        <div class="item-list">
+          <div class="item border-bottom">北京</div>
+          <div class="item border-bottom">澳门</div>
+          <div class="item border-bottom">阿里巴巴</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
-  name: 'cityList'
+  name: 'cityList',
+  mounted () {
+    const scroll = new BScroll(this.$refs.wrapper)
+  }
 }
 </script>
 
@@ -71,7 +77,7 @@ export default {
     right 0px
     bottom 0px
     .title
-      line-height .44rem
+      line-height .54rem
       padding-left .2rem
       font-size .26rem
       background-color #eee
