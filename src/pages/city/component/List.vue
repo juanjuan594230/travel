@@ -12,43 +12,15 @@
       <div class="area">
         <div class="title">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">厦门</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">上海</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">西安</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">太原</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
+          <div class="button-wrapper" v-for="(item, index) in hot" :key="index">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title">A</div>
+      <div class="area" v-for="(item, key) in cities" :key="key">
+        <div class="title">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">澳门</div>
-          <div class="item border-bottom">阿里巴巴</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">澳门</div>
-          <div class="item border-bottom">阿里巴巴</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">澳门</div>
-          <div class="item border-bottom">阿里巴巴</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title">B</div>
-        <div class="item-list">
-          <div class="item border-bottom">北京</div>
-          <div class="item border-bottom">澳门</div>
-          <div class="item border-bottom">阿里巴巴</div>
+          <div class="item border-bottom" v-for="value in item" :key="value.id">{{value.name}}</div>
         </div>
       </div>
     </div>
@@ -59,8 +31,13 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'cityList',
+  props: {
+    cities: Object,
+    hot: Array
+  },
   mounted () {
     const scroll = new BScroll(this.$refs.wrapper)
+    console.log(scroll)
   }
 }
 </script>
