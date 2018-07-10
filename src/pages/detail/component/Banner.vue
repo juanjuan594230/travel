@@ -8,9 +8,6 @@
       <div class="banner-number">
         <span class="iconfont img-icon">&#xe608;</span>36
       </div>
-      <router-link to="/" class="banner-back">
-        <span class="iconfont back-icon">&#xe624;</span>
-      </router-link>
     </div>
     <common-gallary :imgs="imgs" v-show="showGallary" @close="handleCloseClick"></common-gallary>
   </div>
@@ -73,18 +70,4 @@ export default {
       .img-icon
         font-size .24rem
         padding-right .15rem
-    .banner-back
-      position absolute
-      top .1rem
-      left .1rem
-      width .72rem
-      height .72rem
-      line-height .72rem
-      text-align center
-      background rgba(0,0,0,.5)
-      border-radius 50%
-      color #fff
-      .back-icon
-        font-size .36rem
-        font-weight 700
 </style>
