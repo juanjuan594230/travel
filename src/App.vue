@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 根据当前路由地址，展示对应的内容 -->
-    <keep-alive>
+    <keep-alive exclude="detail">
       <router-view/>
     </keep-alive>
   </div>

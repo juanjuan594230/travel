@@ -1,6 +1,10 @@
 <template>
   <div class="detail">
-    <detail-banner :imgs="imgs"></detail-banner>
+    <detail-banner
+      :sightName="sightName"
+      :bannerImg="bannerImg"
+      :gallaryImgs="gallaryImgs">
+    </detail-banner>
     <detail-header></detail-header>
     <detail-list :list="list"></detail-list>
     <div class="content"></div>
@@ -8,6 +12,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import detailBanner from './component/Banner.vue'
 import detailHeader from './component/Header.vue'
 import detailList from './component/List.vue'
@@ -20,28 +25,33 @@ export default {
   },
   data () {
     return {
-      imgs: ['http://img1.qunarzz.com/sight/p0/1501/89/babe532d89b23ac070bc09dd092dc9b0.water.jpg_350x240_771a725e.jpg',
-        'http://img1.qunarzz.com/sight/p0/1501/48/7ca26276c03646cabe4dd0de71dc09c4.water.jpg_350x240_f0c1adc8.jpg'],
-      list: [{
-        title: '成人票',
-        children: [{
-          title: '成人三馆联票',
-          children: [{
-            title: '成人第三级1'
-          }, {
-            title: '成人第三级2'
-          }]
-        }, {
-          title: '成人两馆联票'
-        }]
-      }, {
-        title: '学生票'
-      }, {
-        title: '儿童票'
-      }, {
-        title: '特惠票'
-      }]
+      sightName: '',
+      bannerImg: '',
+      gallaryImgs: [],
+      list: []
     }
+  },
+  methods: {
+    getDetailInfo () {
+      axios.get('/api/detail.json', {
+        params: {
+          id: this.$route.params.id
+        }
+      }).then(this.handleGetDataSucc)
+    },
+    handleGetDataSucc (res) {
+      res = res.data
+      if (res.ret) {
+        const data = res.data
+        this.sightName = data.sightName
+        this.bannerImg = data.bannerImg
+        this.gallaryImgs = data.gallaryImgs
+        this.list = data.categoryList
+      }
+    }
+  },
+  mounted () {
+    this.getDetailInfo()
   }
 }
 </script>

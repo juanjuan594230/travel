@@ -29,8 +29,6 @@ export default {
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
-        // 这样没有改变成功
-        // this.opacityStyle.opacity = opacity
         this.opacityStyle = {
           opacity
         }
@@ -40,11 +38,10 @@ export default {
       }
     }
   },
-  activated () {
-    document.documentElement.scrollTop = 0
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  deactivated () {
+  unmounted () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }
